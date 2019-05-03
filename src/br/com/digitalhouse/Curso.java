@@ -15,13 +15,13 @@ public class Curso {
 
     }
 
-    public Curso(String nomeCurso,Integer codCurso,ProfessorTitular novoProfTitular,ProfessorAdjunto novoProfAdjunto,Integer maxQtdeAlunos,List<Aluno> listaAlunosMatriculados){
+    public Curso(String nomeCurso,Integer codCurso,Integer maxQtdeAlunos,ProfessorTitular novoProfTitular,ProfessorAdjunto novoProfAdjunto,List<Aluno> listaAlunosMatriculados){
         this.nomeCurso = nomeCurso;
         this.codCurso = codCurso;
-        this.novoProfTitular = novoProfTitular;
-        this.novoProfAdjunto = novoProfAdjunto;
         this.maxQtdeAlunos = maxQtdeAlunos;
-        this.listaAlunosMatriculados = listaAlunosMatriculados;
+        this.novoProfTitular = null;
+        this.novoProfAdjunto = null;
+        this.listaAlunosMatriculados = null;
     }
 
     public String getNomeCurso() {
@@ -93,6 +93,14 @@ public class Curso {
             return true;
         }else{
             return false;
+        }
+    }
+
+    public void excluirAluno(Aluno umAluno){
+        for(Aluno aluno:listaAlunosMatriculados){
+            if(aluno.equals(umAluno)){
+                listaAlunosMatriculados.remove(aluno);
+            }
         }
     }
 }
